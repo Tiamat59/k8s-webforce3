@@ -128,3 +128,14 @@ k rollout history deployment frontend
 # roolback de version
 k rollout undo deployment frontend
 ```
+
+## configmap
+```shell script
+k create configmap colors \
+ --from-literal=text=black \
+ --from-file=./favorite \
+ --from-file=./primary/
+# affiche la config du configmap
+k get configmaps -o yaml
+```
+
