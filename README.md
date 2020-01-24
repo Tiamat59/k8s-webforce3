@@ -112,3 +112,19 @@ k delete po -l system=IsolatedPod
 # les daemon sont repartis sur tout les noeud (ex application supervision)
 k create -f ds.yaml
 ```
+
+## RollingUpdate
+```shell script
+# cré le curl dans le namespace kube-public (namespace avec des permission augmenté)
+k create -f curl.yaml -n kube-public # permet juste d'emuler la cmd exec utilisé dans le .sh
+k create -f frontend.yaml
+k create -f webapp-service.yaml
+chmod +x curl-test.sh
+# dans un autre shell
+./curl-test.sh # on voix le déploiement pod par pod
+
+k rollout status deployment frontend
+k rollout history deployment frontend
+# roolback de version
+k rollout undo deployment frontend
+```
