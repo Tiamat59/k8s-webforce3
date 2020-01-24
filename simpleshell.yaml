@@ -6,9 +6,21 @@ spec:
   containers:
     - name: nginx
       image: nginx
-      env:
-        - name: ilike
-          valueFrom:
-            configMapKeyRef:
-              key: favorite
-              name: colors
+      volumeMounts:
+        - mountPath: /etc/cars
+          name: car-vol
+  volumes:
+    - name: car-vol
+      configMap:
+        name: fast-car
+
+#      env:
+#        - name: ilike
+#          valueFrom:
+#            configMapKeyRef:
+#              key: favorite
+#              name: colors
+#      envFrom:
+#        - configMapRef:
+#            name : colors
+

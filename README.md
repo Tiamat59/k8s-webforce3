@@ -137,5 +137,7 @@ k create configmap colors \
  --from-file=./primary/
 # affiche la config du configmap
 k get configmaps -o yaml
+k create -f simpleshell.yaml
+k exec -it shell-demo -- /bin/bash -c 'echo $ilike'
 ```
 
