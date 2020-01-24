@@ -139,5 +139,7 @@ k create configmap colors \
 k get configmaps -o yaml
 k create -f simpleshell.yaml
 k exec -it shell-demo -- /bin/bash -c 'echo $ilike'
+k exec -it shell-demo -- /bin/bash -c 'cat /etc/cars/car.body'
+k exec -it shell-demo -- /bin/bash -c 'ls -artl /etc/cars/'
 ```
 
